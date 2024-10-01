@@ -1,3 +1,5 @@
+//singly linked list
+
 void insert_end(int ele)
 {
     tmp=p;
