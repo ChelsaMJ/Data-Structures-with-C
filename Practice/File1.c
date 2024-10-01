@@ -63,4 +63,51 @@ void main() {
 printf("\nDo u want to continue?...");
     } while ('y'==getch());
 }
-    
+
+void insert_end(int ele) {  
+    tmp = p;  
+    tmpl = (struct node*)malloc(sizeof(struct node));  
+    tmpl->data = ele;  
+    tmpl->next = NULL;  
+    if (p == NULL)  
+        p = tmpl;  
+    else {  
+        while (tmp->next != NULL)  
+            tmp = tmp->next;  
+        tmp->next = tmpl;  
+    }  
+}  
+
+void insert_beg(int ele) {  
+    tmp = p;  
+    tmpl = (struct node*)malloc(sizeof(struct node));  
+    tmpl->data = ele;  
+    tmpl->next = p;  
+    p = tmpl;  
+}  
+
+void delete_end() {  
+    tmp = p;  
+    struct node* pre;  
+    if (p == NULL)  
+        printf("\n no element to be deleted!! ");  
+    else if (p->next == NULL) {  
+        printf("\nelement deleted - %d", p->data);  
+        p = NULL;  
+    } else {  
+        while (tmp->next != NULL) {  
+            pre = tmp;  
+            tmp = tmp->next;  
+        }  
+        pre->next = NULL;  
+        printf("\nelement deleted - %d", tmp->data);  
+    }  
+}  
+
+void display() {  
+    tmp = p;  
+    while (tmp != NULL) {  
+        printf("\n %d", tmp->data);  
+        tmp = tmp->next;  
+    }  
+}
